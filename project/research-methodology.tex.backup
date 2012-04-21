@@ -1,0 +1,24 @@
+\chapter{Research Methodology}
+
+\section{Passive Information Gathering Module}
+
+\subsection{HTTP}
+To implement Web Scraping module for Information Gathering we need to understand the HTTP protocol. HTTP (The Hypertext Transfer 
+Protocol) is an application protocol for distributed, collaborative, hypermedia information systems. HTTP is the 
+foundation of data communication for the World Wide Web.
+
+\subsubsection{Request methods}
+HTTP defines nine methods (sometimes referred to as "verbs") indicating the desired action to be performed on the identified 
+resource. What this resource represents, whether pre-existing data or data that is generated dynamically, depends on the 
+implementation of the server. Often, the resource corresponds to a file or the output of an executable residing on the server.\\[0.5cm]
+Following are the main request methods we will be dealing with :-
+\begin{description}
+\item[POST : ] Submits data to be processed (e.g., from an HTML form) to the identified resource. The data is included in the body of the request. This may result in the creation of a new resource or the updates of existing resources or both.
+\item[GET : ] Requests a representation of the specified resource. Requests using GET should only retrieve data and should have no other 
+effect. (This is also true of some other HTTP methods.) The W3C has published guidance principles on this distinction, saying, 
+"Web application design should be informed by the above principles, but also by the relevant limitations."
+\end{description}
+
+
+
+
