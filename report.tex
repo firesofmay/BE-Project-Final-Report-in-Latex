@@ -3,6 +3,8 @@
 %CHANGE THESE Settings ONLY IF YOU KNOW WHAT YOU DOING
 
 \documentclass[12pt,a4paper]{report}
+
+%adjust your page margins here
 \usepackage[top=0.70in, bottom=0.70in, left=0.8in,right=0.80in]{geometry} % setting the page alignment with this package
 \usepackage[pdftex]{graphicx} %for embedding images
 %\usepackage[hyphens]{url} %for proper url entries
@@ -49,19 +51,31 @@
   morekeywords={*,...}               % if you want to add more keywords to the set
 }
 
-
 %%%%For inserting Python Code Over
+
+
 
 %For the header and footer
 \usepackage{fancyhdr}
+\fancypagestyle{plain}{%
+%\fancyhf{} % clear all header and footer fields
+\fancyfoot[L]{\emph{This project is a Proof of Concept of Social Engineering Attack on Facebook using Web Scraping and Two Man in the middle attack Technique.}} % except the center
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+}
+
 \pagestyle{fancy}
 \lhead{Chapter \thechapter}
 \renewcommand{\chaptermark}[1]{% 
 \markboth{#1}{}} 
-\lfoot{\emph{This project is a Proof of Concept of Social Engineering Attack on Facebook using Web Scraping and Two Man in the middle attack Technique.}}
+
+\fancyfoot[LO,LE]{\emph{This project is a Proof of Concept of Social Engineering Attack on Facebook using Web Scraping and Two Man in the middle attack Technique.}}
 \cfoot{}
+\fancyfoot[RO, RE]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
+%For the header and footer Over
 
 % Altering the Index Page Title
 %\renewcommand{\contentsname}{\begin{center}\textsc{University Of Pune \\2011 - 2012}\\[1cm]Index\end{center}} 
@@ -97,39 +111,33 @@
 %TABLE OF CONTENTS AND LIST OF FIGURES ARE AUTOMATICALLY ADDED BY FOLLOWING COMMANDS
 %ADD FIGURE OF TABLES IF YOU NEED TO, CHECK DOCUMENTATION
 \pagenumbering{roman} %numbering before main content starts
+
+
+%To reset the Header & Footer for TOC and LOF
+\pagestyle{empty}
+\addtocontents{toc}{\protect\thispagestyle{empty}}
 \tableofcontents % adds Index Page
+
+%\pagestyle{empty}
+
+\addtocontents{lof}{\protect\thispagestyle{empty}}
 \listoffigures % adds List of Figures
+\cleardoublepage
+
+%And reset back the settings we choose for Header and Footer
+\pagestyle{fancy}
 
 \newpage
 \pagenumbering{arabic} %reset numbering to normal for the main content
 
 \input{project/introduction.tex} % adds the introduction page
-
 \input{project/literature-survey.tex} % adds the Literature Survey page
-
-
 \input{project/proposed-work.tex} % adds the Project Work page
-
-
 \input{project/research-methodology.tex} % adds the Research Methodology page
-
-
 \input{project/project-design.tex} % adds the Project Design
-
-
 \input{project/implementation.tex} % adds the Project Design
-
-
-
 \input{project/schedule.tex} % adds the Scheduling and Planning page
-
-
-
 \input{project/conclusion.tex} % adds the Scheduling and Planning page
-
-
 \input{project/ref.tex} % adds the References page
-
-
 
 \end{document}
