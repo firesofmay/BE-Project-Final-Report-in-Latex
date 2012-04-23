@@ -11,9 +11,18 @@ social networks or social relations among people, who, for example, share intere
 with similar or somewhat similar interests, backgrounds and/or activities make their own communities.\\[0.5cm]
 A social network service consists of a representation of each user (often a
 profile), his/her social links, and a variety of additional services.\\[0.5cm]
-According to ComScore, Facebook has the largest number of Social Network User shares (up to end of November 2011)\cite{marketshare}
+Here are some statistics about Facebook (Alexa estimates, as of 20/04/2012):-
+\begin{itemize}
+\item{daily page views : ~8.4 billion}
+\item{daily visitors : ~650 million}
+\item{views per visitor : 12.9}
+\item{site rank : 2nd}
+\item{traffic fraction : 0.45\% ~1  in  220   of all web traffic }
+\end{itemize}
+\newpage
+According to ComScore, Facebook has the largest number of Social Network User shares (up to end of November 2011)\cite{marketshare}\\
 
-\begin{table}[h]\large
+\begin{table}\large
 \centering
 \begin{tabular}{l | c | r}
 Worldwide & Unique Visitors & Percentage\\
@@ -26,17 +35,6 @@ Others & 255,539 & 17.8\%\\
 Total & 1,438,877 & 100\%\\
 \end{tabular}
 \end{table}
-
-And here are some statistics about Facebook (Alexa estimates, as of  20/04/2012) :-
-\begin{itemize}
-\item{daily page views : ~8.4 billion}
-\item{daily visitors : ~650 million}
-\item{views per visitor : 12.9}
-\item{site rank : 2nd}
-\item{traffic fraction : 0.45\% ~1  in  220   of all web traffic }
-\end{itemize}
-
-
 This shows that there is a lot of user generated information that is available to tap into. Facebook has its own API but we 
 cannot use that to extract data about anyone. So we thought of writing a module which can do Web Scraping.
 %Below is an example of how you will add references. short_paper_name is what you have specified in your ref.tex file
@@ -78,7 +76,7 @@ be extensible, the protocol today also finds application in VoIP and file transf
 
 Facebook uses XMPP (Extensible Messaging and Presence Protocol) for chatting.	
 
-
+\newpage
 \subsection{Attack as Example}
   Following is an example.\\
 Lets say we have two marks (targets) Alice (Human) - aliceHuman and Bob
@@ -97,7 +95,7 @@ i.e. two humans are having conversation through two bots but they think
 that they are talking to a human since the conversation sounds like a human
 (which it is).\\[0.5cm]
 After some amount of bonding between them our bots start modification
-by using injecting questions inside the conversations\\[0.5cm]\newpage
+by using injecting questions inside the conversations\\[0.5cm]
 \noindent
 \textbf{AliceHuman - bobBot} : ”Hey how was the movie yesterday?”\\
 \textbf{botBot - aliceBot} : ”Hey how was the movie yesterday?and hey btw whats
@@ -123,35 +121,35 @@ favorite color. We got hold of two marks information without raising suspicion.\
 \label{fig:chatattack1} %see below of how to use it
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}
 \centering
 \includegraphics[scale=0.4]{project/diagrams/chatattack2}
 \caption{Example of Conversation Modification - 1}
 \label{fig:chatattack1} %see below of how to use it
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}
 \centering
 \includegraphics[scale=0.4]{project/diagrams/chatattack3}
 \caption{Example of Conversation Modification - 2}
 \label{fig:chatattack3} %see below of how to use it
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}
 \centering
 \includegraphics[scale=0.4]{project/diagrams/chatattack4}
 \caption{Example of Conversation Modification - 3}
 \label{fig:chatattack4} %see below of how to use it
 \end{figure}
 
-\begin{figure}[htb]
+\begin{figure}
 \centering
 \includegraphics[scale=0.4]{project/diagrams/chatattack5}
 \caption{Example of Conversation Modification - 4}
 \label{fig:chatattack5} %see below of how to use it
 \end{figure}
 
-
+\newpage
 \subsection{Constraints}
 We will develop a POC (Proof of Concept) only. To modify the conversation we will use simple regex based parsing to match and substitute
 it with matching strings. There will be no Artificial Inteligence or Machine Learning involved as that is out of scope at this level. Though 

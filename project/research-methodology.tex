@@ -29,3 +29,28 @@ urllib2.urlopen(url[, data][, timeout])\\[0.5cm]
 
 \subsection{Regular Expressions}
 A Regular Expression is the term used to describe a codified method of searching invented, or defined, by the American mathematician Stephen Kleene.\cite{whatisregex}
+
+
+\section{Facebook Chat Attack}
+\subsection{XMPPPY}
+xmpppy is a Python library that is targeted to provide easy scripting with Jabber. Similar projects are Twisted Words and jabber.py.\\[0.5cm]
+This library was not designed from scratch. It inherits some code from jabberpy and have very similar API in many places. Though it is separate project since it have almost completely different architecture and primarily aims to work with jabberd2 - the new Open Source Jabber Server.\\
+We tried to use this library but we had issues\cite{xmpppy_issue1}\cite{xmpppy_issue2}. Even though we were finally able to resolve the issue\cite{xmpppy_issue3}\\[0.5cm]
+We didn't use this library due to insufficient documentation. The project was stuck for a while and we could not move it forward.
+
+\subsection{SleekXMPP}
+
+To resolve the issue of XMPP library we Found SleekXMPP.\\[0.5cm]
+SleekXMPP is an MIT licensed XMPP library for Python 2.6/3.1+\\[0.5cm]
+SleekXMPP’s design goals and philosphy are:
+\begin{description}
+\item[ Low number of dependencies :] Installing and using SleekXMPP should be as simple as possible, without having to deal with long dependency chains.\\As part of reducing the number of dependencies, some third party modules are included with SleekXMPP in the thirdparty directory. Imports from this module first try to import an existing installed version before loading the packaged version, when possible.
+\item[Every XEP as a plugin :] Following Python’s “batteries included” approach, the goal is to provide support for all currently active XEPs (final and draft). Since adding XEP support is done through easy to create plugins, the hope is to also provide a solid base for implementing and creating experimental XEPs.
+\item[Rewarding to work with :] As much as possible, SleekXMPP should allow things to “just work” using sensible defaults and appropriate abstractions. XML can be ugly to work with, but it doesn’t have to be that way. 
+\end{description}
+
+    
+
+    
+
+    
