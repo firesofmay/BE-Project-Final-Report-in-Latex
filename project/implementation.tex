@@ -1,31 +1,117 @@
-\chapter{Research Methodology}
+\chapter{Implementation}
 
 \section{Passive Information Gathering Module}
 
-\subsection{HTTP}
-To implement Web Scraping module for Information Gathering we need to understand the HTTP protocol. HTTP (The Hypertext Transfer 
-Protocol) is an application protocol for distributed, collaborative, hypermedia information systems. HTTP is the 
-foundation of data communication for the World Wide Web.
+\subsection{Database Connections}
+Following snippet initializes the database connections :-
+\lstinputlisting{project/code/initdbconfig.py}
 
-\subsubsection{Request methods}
-HTTP defines nine methods (sometimes referred to as "verbs") indicating the desired action to be performed on the identified 
-resource. What this resource represents, whether pre-existing data or data that is generated dynamically, depends on the 
-implementation of the server. Often, the resource corresponds to a file or the output of an executable residing on the server.\\[0.5cm]
-Following are the main request methods we will be dealing with :-
+This code creates the two Tables :-
+\lstinputlisting{project/code/initializedb.py}
+
+\subsection{Facebook Login}
+To implement scraping, we needed to login via the script. Following is the snippet 
+\lstinputlisting{project/code/LoginFB.py}
+
+\subsection{Fetching Friends}
+
+Following Code fetches Friends list of a user.
+\lstinputlisting{project/code/FetchFriends.py}
+And Following is a sample of data collected of a Facebook User.\\
+\begin{table}[h]
+\centering
+\begin{tabular}{>{\bfseries}l>{\bfseries}c>{\bfseries}r}
+Attributes	& 	User1 			& UserN\\
+Seq Id		& 	1 			& 3\\
+Profile ID      & 	100002012773778 	& 698854997\\
+Full Name	& 	Hemant Rathore		& Ashish Chauhan\\
+Usrname 	& 	NA			& chauhan.ashish\\
+Frnds           &	35			& 1356\\
+TimeStamp 	&	2011-12-26 01:42:02	& 2011-12-26 03:28:44\\
+Scrapped 	&	35			& 1280\\
+IsDone 		& 	1 			& -1\\
+Level    	& 	0  			& 1\\
+Sex		& 	male 			& male\\
+\end{tabular}
+\end{table}
+
+\newpage
+
+\subsection{Summary of Data}
+
 \begin{description}
-\item[POST : ] Submits data to be processed (e.g., from an HTML form) to the identified resource. The data is included in the body of the request. This may result in the creation of a new resource or the updates of existing resources or both.
-\item[GET : ] Requests a representation of the specified resource. Requests using GET should only retrieve data and should have no other 
-effect. (This is also true of some other HTTP methods.) The W3C has published guidance principles on this distinction, saying, 
-"Web application design should be informed by the above principles, but also by the relevant limitations."
+\item[Target Profile ID :]  100002012773778
+\item[Username :] NA
+\item[Name :] Hemant Rathore
+\item[Gender :] Male
+\item[Profile Link :] http://www.facebook.com/profile.php?id=100002012773778\\
+\item[Total Friends of Hemant Rathore                       (Level 1):]  35
+\item[Total Friends of Friends of Hemant Rathore            (Level 2):]  7443
+\item[Total Friends of Friends of Friends of Hemant Rathore (Level 3):]  17,73,288\\
+\item[Number of Males   at Level 1:] 30
+\item[Number of Females at Level 1:] 3
+\item[Number of NA      at Level 1:] 1 \\
+\item[Number of Males   at Level 2:] 4420
+\item[Number of Females at Level 2:] 1241
+\item[Number of NA      at Level 2:] 97\\
+\item[Number of People who have hidden their Friends list at Level 1:] 11/35
+\item[Number of People who have hidden their Friends list at Level 2:] 1733/7443\\
+\item[Total Number of People who have hidden their Friends list:] 1744/7478 Approx 25\% Only.
+\item[Total Number of People who Do NOT have usernames set:] 3128/7478 = 40\% Approx
+\item[Total Number of People who Have Hidden their Gender:] 98/7478 = 1\% Approx\\
+\item[Run Duration:] 473 Mins.
+\item[Friends Fetched/Min:] (7443+35) / 473 = 15 Frnds/mins (rounded off)\\
+\item[Data Base Size:] 0.94989872 MB\\
+\item[Number of Unique friends edges found:] 6613
+\item[Number of Unique Profiles found:] 5793
 \end{description}
+                                                                    
+\section{Facebook Chat Attack}
 
-\subsection{urllib2}
-Since we will be using Python 2.x for our project, we will be using the standard library for doing the HTTP requests to be made.
-The urllib2 module defines functions and classes which help in opening URLs (mostly HTTP) in a complex world — basic and digest authentication, redirections, cookies and more.\cite{py_urllib2}
+Following is a snippet of Chat Replay and Modification Code
+\lstinputlisting{project/code/alexbot.py}
 
-urllib2.urlopen(url[, data][, timeout])\\[0.5cm]
+and following are the screenshots of the attack
 
-\emph{ - Open the URL url, which can be either a string or a Request object.}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6, angle=90]{project/diagrams/attack1}
+\caption{Facebook Chat Attack - 1}
+\label{fig:attack1}
+\end{figure}
 
-\subsection{Regular Expressions}
-A Regular Expression is the term used to describe a codified method of searching invented, or defined, by the American mathematician Stephen Kleene.\cite{whatisregex}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6, angle=90]{project/diagrams/attack2}
+\caption{Facebook Chat Attack - 2}
+\label{fig:attack1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6, angle=90]{project/diagrams/attack3}
+\caption{Facebook Chat Attack - 3}
+\label{fig:attack1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6, angle=90]{project/diagrams/attack4}
+\caption{Facebook Chat Attack - 4}
+\label{fig:attack1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6, angle=90]{project/diagrams/attack5}
+\caption{Facebook Chat Attack - 5}
+\label{fig:attack1}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6, angle=90]{project/diagrams/attack6}
+\caption{Facebook Chat Attack - 6}
+\label{fig:attack1}
+\end{figure}
+
